@@ -3,6 +3,7 @@ from __future__ import print_function
 import boto3
 import json
 import logging
+import pymysql
 import sys
 
 logger = logging.getLogger()
@@ -38,6 +39,6 @@ def lambda_handler(event, context):
         logger.error("ERROR: Unexpected error: Could not connect to" + rds_host + " instance.")
         sys.exit()
 
-    message = 'Hello from your AWS Console %s. Your databases are all up!'
+    message = 'Hello from your AWS Console. Your databases are all up!'
     sns.publish(PhoneNumber=phone_number, Message=message)
     logger.info('SMS has been sent to ' + phone_number)
