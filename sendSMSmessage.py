@@ -3,6 +3,7 @@ from __future__ import print_function
 import boto3
 import json
 import logging
+import sys
 
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
