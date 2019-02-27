@@ -30,6 +30,42 @@ def lambda_handler(event, context):
         logger.error("ERROR: Unexpected error: Could not connect to " + rds_host + " instance.")
         sys.exit()
 
+    rds_host = "septa-01.ccgbnu8qerao.us-east-1.rds.amazonaws.com"
+    db_name = "septa01";
+
+    try:
+        conn = pymysql.connect(rds_host, user=name, passwd=password, db=db_name, connect_timeout=5)
+    except:
+        logger.error("ERROR: Unexpected error: Could not connect to " + rds_host + " instance.")
+        sys.exit()
+
+    rds_host = "septa-02.ccgbnu8qerao.us-east-1.rds.amazonaws.com"
+    db_name = "septa02";
+
+    try:
+        conn = pymysql.connect(rds_host, user=name, passwd=password, db=db_name, connect_timeout=5)
+    except:
+        logger.error("ERROR: Unexpected error: Could not connect to " + rds_host + " instance.")
+        sys.exit()
+
+    rds_host = "septa-03.ccgbnu8qerao.us-east-1.rds.amazonaws.com"
+    db_name = "septa03";
+
+    try:
+        conn = pymysql.connect(rds_host, user=name, passwd=password, db=db_name, connect_timeout=5)
+    except:
+        logger.error("ERROR: Unexpected error: Could not connect to " + rds_host + " instance.")
+        sys.exit()
+
+    rds_host = "septa-04.ccgbnu8qerao.us-east-1.rds.amazonaws.com"
+    db_name = "septa04";
+
+    try:
+        conn = pymysql.connect(rds_host, user=name, passwd=password, db=db_name, connect_timeout=5)
+    except:
+        logger.error("ERROR: Unexpected error: Could not connect to " + rds_host + " instance.")
+        sys.exit()
+
     return {
         'statusCode': 200,
         'body': json.dumps('All databases up!')
