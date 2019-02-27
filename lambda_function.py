@@ -19,7 +19,6 @@ def lambda_handler(event, context):
         logger.error("ERROR: Unexpected error: Could not connect to" + rds_host + " instance.")
         sys.exit()
 
-    conn.close()
     #check next DB, same credientials but different DB and host
     rds_host = "transitviewdata.ccgbnu8qerao.us-east-1.rds.amazonaws.com"
     db_name = "transitviewdata";
