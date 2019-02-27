@@ -1,6 +1,7 @@
 import json
 import logging
 import pymysql
+import sys
 logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
@@ -25,7 +26,7 @@ def lambda_handler(event, context):
     try:
         conn = pymysql.connect(rds_host, user=name, passwd=password, db=db_name, connect_timeout=5)
     except:
-        logger.error("ERROR: Unexpected error: Could not connect to" + rds_host + " instance.")
+        logger.error("ERROR: Unexpected error: Could not connect to " + rds_host + " instance.")
         sys.exit()
 
     return {
